@@ -1,17 +1,13 @@
 import 'package:equatable/equatable.dart';
 
 class User extends Equatable {
-  const User(this.status, this.dob, this.address,
-      {required this.name, required this.email});
+  const User({required this.name, required this.email});
 
   final String name;
   final String email;
-  final String? status;
-  final String? dob;
-  final String? address;
 
   /// Empty user which represents an unauthenticated user.
-  static const empty = User(null, null, null, name: '', email: '');
+  static const empty = User(name: '', email: '');
 
   /// Convenience getter to determine whether the current user is empty.
   bool get isEmpty => this == User.empty;
@@ -20,5 +16,5 @@ class User extends Equatable {
   bool get isNotEmpty => this != User.empty;
 
   @override
-  List<Object?> get props => [name, email, status, dob, address];
+  List<Object?> get props => [name, email];
 }
