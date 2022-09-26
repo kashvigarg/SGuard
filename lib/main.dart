@@ -1,6 +1,5 @@
-import 'package:authentication_repository/authentication_repository.dart';
-import 'package:bloc/bloc.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:empowering_humanity/login/view/login_page.dart';
+import 'package:empowering_humanity/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:empowering_humanity/app/app.dart';
@@ -26,8 +25,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: "UI wip",
-    );
+    return MaterialApp(home: SplashScreen());
   }
 }
