@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 
 class BgMain extends StatelessWidget {
-  const BgMain({super.key, required this.imagePath, this.widget});
+  const BgMain({super.key, this.widget});
 
   final Widget? widget;
-  final String imagePath;
+  final String imagePath = "assets/main_bg.png";
   @override
   Widget build(BuildContext context) {
     return Stack(

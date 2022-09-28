@@ -1,4 +1,4 @@
-import 'package:empowering_humanity/login/view/login_page.dart';
+import 'package:empowering_humanity/login/view/home_page.dart';
 import 'package:empowering_humanity/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
