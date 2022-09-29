@@ -20,7 +20,10 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.only(top: 60),
             child: Column(
               children: [
-                BannerBody(),
+                BannerBody(
+                  height: screenHeight * 0.1,
+                  width: screenWidth * 0.7,
+                ),
                 const SizedBox(
                   height: 40,
                 ),
@@ -45,7 +48,6 @@ class HomePage extends StatelessWidget {
                       )
                     ],
                   ),
-                  color: Color.fromRGBO(122, 159, 116, 0.8),
                   height: screenHeight * 0.50,
                   width: screenWidth * 0.8,
                   curveRadius: 40,

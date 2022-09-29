@@ -13,7 +13,7 @@ class ProfilePhoto extends StatelessWidget {
     return Column(
       children: [
         CircleAvatar(
-          minRadius: 50,
+          minRadius: 47,
           child: Image.asset(imagePath),
         ),
         SizedBox(
@@ -39,13 +39,14 @@ class ProfileBanner extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             ProfilePhoto(
-                imagePath: "assets/extras/Vector.png", imageText: "USER"),
+                imagePath: "assets/extras/user.png", imageText: "USER"),
             ProfilePhoto(
-                imagePath: "assets/extras/Vector.png", imageText: "ADMIN"),
+                imagePath: "assets/extras/admin.png", imageText: "ADMIN"),
           ],
         ),
         ProfilePhoto(
-            imagePath: "assets/extras/Vector.png", imageText: "SUPER ADMIN"),
+            imagePath: "assets/extras/superadmin.png",
+            imageText: "SUPER ADMIN"),
       ],
     );
   }

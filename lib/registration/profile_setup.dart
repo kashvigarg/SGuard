@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
+class ProfileSetUp extends StatefulWidget {
+  const ProfileSetUp({super.key});
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<ProfileSetUp> createState() => _ProfileSetUpState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _ProfileSetUpState extends State<ProfileSetUp> {
   @override
   Widget build(BuildContext context) {
     final deviceInfo = MediaQuery.of(context);
@@ -43,7 +43,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             child: Column(
                           children: [
                             SizedBox(
-                              height: 45,
+                              height: 48,
                             ),
                             TextFormField(
                               decoration: InputDecoration(
@@ -56,7 +56,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   filled: true),
                             ),
                             SizedBox(
-                              height: 15,
+                              height: 20,
                             ),
                             TextFormField(
                               decoration: InputDecoration(
@@ -68,26 +68,19 @@ class _SignUpPageState extends State<SignUpPage> {
                                   fillColor: Colors.white,
                                   filled: true),
                             ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            TextFormField(
-                              decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(6)),
-                                  constraints: BoxConstraints(
-                                      minHeight: 30, maxWidth: 286),
-                                  labelText: "Re-Enter Password",
-                                  fillColor: Colors.white,
-                                  filled: true),
-                            ),
+                            TextButton(
+                                onPressed: () {},
+                                child: Text(
+                                  "Forgot Password?",
+                                  style: TextStyle(color: Colors.black87),
+                                )),
                             SizedBox(
                               height: screenHeight * 0.02,
                             ),
                             AppButton(
                                 pressedFunc: () {},
                                 buttonColor: Color.fromRGBO(66, 139, 202, 1),
-                                buttonText: "SIGN UP",
+                                buttonText: "LOGIN",
                                 textColor: Colors.white,
                                 height: screenHeight * 0.05,
                                 width: screenWidth * 0.3)

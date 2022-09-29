@@ -10,13 +10,15 @@ class AppButton extends StatelessWidget {
       required this.buttonText,
       required this.height,
       required this.width,
-      this.icon});
+      this.icon,
+      this.textColor});
 
-  final Color buttonColor;
+  final Color? buttonColor;
   final String buttonText;
   final double height;
   final double width;
   final IconData? icon;
+  final Color? textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -25,20 +27,24 @@ class AppButton extends StatelessWidget {
             height: height,
             width: width,
             decoration: BoxDecoration(
-              color: Color.fromRGBO(245, 246, 241, 0.67),
+              color: buttonColor != null
+                  ? buttonColor
+                  : Color.fromRGBO(245, 246, 241, 0.67),
               borderRadius: BorderRadius.circular(25),
             ),
             child: Center(
                 child: Text(
               buttonText,
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 20, color: textColor),
             )),
           )
         : Container(
             height: height,
             width: width,
             decoration: BoxDecoration(
-              color: Color.fromRGBO(245, 246, 241, 0.67),
+              color: buttonColor != null
+                  ? buttonColor
+                  : Color.fromRGBO(245, 246, 241, 0.67),
               borderRadius: BorderRadius.circular(25),
             ),
             child: Row(
@@ -50,7 +56,7 @@ class AppButton extends StatelessWidget {
                 ),
                 Text(
                   buttonText,
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 20, color: textColor),
                 ),
               ],
             ),

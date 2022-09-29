@@ -28,26 +28,34 @@ class UserDashboard extends StatelessWidget {
           widget: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          BannerBody(),
-          Container(
-              child: Image.asset("assets/sos.png"),
-              decoration: BoxDecoration(
-                  color: Colors.black, borderRadius: BorderRadius.circular(20)),
-              height: screenHeight * 0.40,
-              width: screenWidth * 0.7),
+          BannerBody(
+            height: screenHeight * 0.1,
+            width: screenWidth * 0.7,
+          ),
+          GestureDetector(
+            onTap: () {},
+            onDoubleTap: () {},
+            child: Container(
+                child: Image.asset("assets/sos.png"),
+                decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(20)),
+                height: screenHeight * 0.40,
+                width: screenWidth * 0.7),
+          ),
           AppButton(
               icon: Icons.call,
               pressedFunc: () {},
               buttonColor: Colors.white,
               buttonText: "Call Police",
-              height: 51,
+              height: 70,
               width: 300),
           AppButton(
-              icon: Icons.map_rounded,
+              icon: Icons.add_location,
               pressedFunc: () {},
               buttonColor: Colors.white,
               buttonText: "Ping Emergency Contacts",
-              height: 51,
+              height: 70,
               width: 300)
         ],
       )),
