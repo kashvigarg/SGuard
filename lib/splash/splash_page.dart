@@ -4,6 +4,7 @@ import 'package:empowering_humanity/live_streams/live_stream_view.dart';
 import 'package:empowering_humanity/login/login_as.dart';
 import 'package:empowering_humanity/login/view/home_page.dart';
 import 'package:empowering_humanity/registration/profile_setup.dart';
+import 'package:empowering_humanity/registration/profile_setup_2.dart';
 import 'package:empowering_humanity/registration/registration_form.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
         Duration(seconds: 3),
         () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (BuildContext context) => ProfileSetUp())));
+            builder: (BuildContext context) => ProfileSetUp2())));
   }
 
   @override

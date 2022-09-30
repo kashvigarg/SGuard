@@ -28,65 +28,150 @@ class _ProfileSetUpState extends State<ProfileSetUp> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 BaseContainer(
-                  height: screenHeight * 0.50,
+                  height: screenHeight * 0.70,
                   width: screenWidth * 0.8,
                   curveRadius: 40,
                   widget: Padding(
                     padding: const EdgeInsets.only(top: 30),
-                    child: Column(
-                      children: [
-                        BannerBody(
-                          height: screenHeight * 0.1,
-                          width: screenWidth * 0.7,
-                        ),
-                        Form(
-                            child: Column(
-                          children: [
-                            SizedBox(
-                              height: 48,
-                            ),
-                            TextFormField(
-                              decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(6)),
-                                  constraints: BoxConstraints(
-                                      minHeight: 30, maxWidth: 286),
-                                  labelText: "Email",
-                                  fillColor: Colors.white,
-                                  filled: true),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            TextFormField(
-                              decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(6)),
-                                  constraints: BoxConstraints(
-                                      minHeight: 30, maxWidth: 286),
-                                  labelText: "Password",
-                                  fillColor: Colors.white,
-                                  filled: true),
-                            ),
-                            TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  "Forgot Password?",
-                                  style: TextStyle(color: Colors.black87),
-                                )),
-                            SizedBox(
-                              height: screenHeight * 0.02,
-                            ),
-                            AppButton(
-                                pressedFunc: () {},
-                                buttonColor: Color.fromRGBO(66, 139, 202, 1),
-                                buttonText: "LOGIN",
-                                textColor: Colors.white,
-                                height: screenHeight * 0.05,
-                                width: screenWidth * 0.3)
-                          ],
-                        ))
-                      ],
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.arrow_back,
+                                    size: 30,
+                                    color: Colors.white,
+                                  )),
+                              SizedBox(
+                                width: screenWidth * 0.09,
+                              ),
+                              Text(
+                                "Profile Set Up",
+                                textAlign: TextAlign.center,
+                                textScaleFactor: 2,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              )
+                            ],
+                          ),
+                          Text(
+                            "The app is focused on your personal medical testomony incase of emergency. Your doctor can find your personal information from the data you enter below:",
+                            softWrap: true,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          Form(
+                              child: Column(
+                            children: [
+                              SizedBox(
+                                height: 48,
+                              ),
+                              TextFormField(
+                                decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(6)),
+                                    constraints: BoxConstraints(
+                                        minHeight: 30, maxWidth: 286),
+                                    labelText: "Name",
+                                    fillColor: Colors.white,
+                                    filled: true),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              TextFormField(
+                                decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(6)),
+                                    constraints: BoxConstraints(
+                                        minHeight: 30, maxWidth: 286),
+                                    labelText: "DOB",
+                                    fillColor: Colors.white,
+                                    filled: true),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Column(children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    TextFormField(
+                                      decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(6)),
+                                          constraints: BoxConstraints(
+                                              minHeight: 30, maxWidth: 145),
+                                          labelText: "Sex",
+                                          fillColor: Colors.white,
+                                          filled: true),
+                                    ),
+                                    TextFormField(
+                                      decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(6)),
+                                          constraints: BoxConstraints(
+                                              minHeight: 30, maxWidth: 145),
+                                          labelText: "Blood Type",
+                                          fillColor: Colors.white,
+                                          filled: true),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: screenHeight * 0.02,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    TextFormField(
+                                      decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(6)),
+                                          constraints: BoxConstraints(
+                                              minHeight: 30, maxWidth: 145),
+                                          labelText: "Height",
+                                          fillColor: Colors.white,
+                                          filled: true),
+                                    ),
+                                    TextFormField(
+                                      decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(6)),
+                                          constraints: BoxConstraints(
+                                              minHeight: 30, maxWidth: 145),
+                                          labelText: "Weight",
+                                          fillColor: Colors.white,
+                                          filled: true),
+                                    ),
+                                  ],
+                                ),
+                              ]),
+                              SizedBox(
+                                height: screenHeight * 0.06,
+                              ),
+                              AppButton(
+                                  pressedFunc: () {},
+                                  buttonColor: Color.fromARGB(255, 39, 142, 42),
+                                  buttonText: "NEXT",
+                                  icon: Icons.skip_next,
+                                  textColor: Colors.white,
+                                  height: screenHeight * 0.05,
+                                  width: screenWidth * 0.3)
+                            ],
+                          ))
+                        ],
+                      ),
                     ),
                   ),
                 ),
