@@ -1,8 +1,9 @@
-import 'package:empowering_humanity/login/view/home_page.dart';
-import 'package:empowering_humanity/splash/splash_page.dart';
+import 'package:empowering_humanity/view/login/view/home_page.dart';
+import 'package:empowering_humanity/view/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:empowering_humanity/app/app.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 // Future<void> main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +17,10 @@ import 'package:empowering_humanity/app/app.dart';
 //   runApp(App(authenticationRepository: authenticationRepository));
 // }
 
-void main() {
+void main() async {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
+
   runApp(const MyApp());
 }
 
