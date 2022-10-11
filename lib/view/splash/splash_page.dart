@@ -1,10 +1,12 @@
 import 'dart:async';
+import 'dart:collection';
 import 'package:empowering_humanity/view/dashboard/user_dashboard.dart';
 import 'package:empowering_humanity/api/live_location/map_page.dart';
 import 'package:empowering_humanity/api/live_streams/live_stream_view.dart';
 import 'package:empowering_humanity/api/live_streams/signalling.dart';
 import 'package:empowering_humanity/view/login/login_as.dart';
 import 'package:empowering_humanity/view/login/view/home_page.dart';
+import 'package:empowering_humanity/view/map_view.dart';
 import 'package:empowering_humanity/view/registration/profile_setup.dart';
 import 'package:empowering_humanity/view/registration/profile_setup_2.dart';
 import 'package:empowering_humanity/view/registration/registration_form.dart';

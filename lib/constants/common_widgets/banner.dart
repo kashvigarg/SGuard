@@ -43,9 +43,12 @@ class BannerBody extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 10,
+              height: 5,
             ),
-            Text("An Empowering Humanity NGO Inititative")
+            Text(
+              "An Empowering Humanity NGO Inititative",
+              textAlign: TextAlign.center,
+            )
           ],
         ),
       ),
