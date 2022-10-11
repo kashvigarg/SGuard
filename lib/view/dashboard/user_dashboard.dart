@@ -1,3 +1,4 @@
+import 'package:empowering_humanity/constants/app_strings.dart';
 import 'package:empowering_humanity/constants/common_widgets/background_main.dart';
 import 'package:empowering_humanity/constants/common_widgets/banner.dart';
 import 'package:empowering_humanity/constants/common_widgets/base_container.dart';
@@ -7,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart';
+
+import '../../constants/common_widgets/dialog_box.dart';
 
 class UserDashboard extends StatelessWidget {
   UserDashboard({super.key});
@@ -37,7 +40,7 @@ class UserDashboard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           BannerBody(
-            height: screenHeight * 0.1,
+            height: screenHeight * 0.12,
             width: screenWidth * 0.7,
           ),
           GestureDetector(
@@ -46,12 +49,23 @@ class UserDashboard extends StatelessWidget {
               signaling.openUserMedia(_localRenderer, _remoteRenderer);
             },
             child: Container(
-                child: Image.asset("assets/sos.png"),
-                decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(20)),
-                height: screenHeight * 0.40,
-                width: screenWidth * 0.7),
+              decoration: BoxDecoration(
+                  color: Colors.black, borderRadius: BorderRadius.circular(20)),
+              height: screenHeight * 0.40,
+              width: screenWidth * 0.7,
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Image.asset("assets/sos.png"),
+                    IconButton(
+                      icon: Icon(Icons.info),
+                      onPressed: () => showDialog(
+                          context: context,
+                          builder: (BuildContext context) => CustomDialog()),
+                      color: Colors.white,
+                    ),
+                  ]),
+            ),
           ),
           AppButton(
               icon: Icons.call,
