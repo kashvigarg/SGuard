@@ -1,7 +1,9 @@
+import 'package:empowering_humanity/constants/app_logos.dart';
 import 'package:empowering_humanity/constants/app_strings.dart';
 import 'package:empowering_humanity/constants/common_widgets/background_main.dart';
 import 'package:empowering_humanity/constants/common_widgets/banner.dart';
 import 'package:empowering_humanity/constants/common_widgets/base_container.dart';
+import 'package:empowering_humanity/constants/common_widgets/drawer.dart';
 import 'package:empowering_humanity/constants/common_widgets/text_button.dart';
 import 'package:empowering_humanity/api/live_streams/signalling.dart';
 import 'package:flutter/material.dart';
@@ -32,17 +34,12 @@ class UserDashboard extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
-      drawer: Drawer(
-        backgroundColor: Colors.black38,
-      ),
+      drawer: CustomDrawer(),
       body: BgMain(
           widget: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          BannerBody(
-            height: screenHeight * 0.12,
-            width: screenWidth * 0.7,
-          ),
+          const BannerBody(),
           GestureDetector(
             onTap: () {},
             onDoubleTap: () {
@@ -56,9 +53,9 @@ class UserDashboard extends StatelessWidget {
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Image.asset("assets/sos.png"),
+                    Image.asset(AppLogos.sos),
                     IconButton(
-                      icon: Icon(Icons.info),
+                      icon: const Icon(Icons.info),
                       onPressed: () => showDialog(
                           context: context,
                           builder: (BuildContext context) => CustomDialog()),

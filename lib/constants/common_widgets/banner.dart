@@ -1,25 +1,18 @@
+import 'package:empowering_humanity/constants/app_strings.dart';
+import 'package:empowering_humanity/constants/size_config.dart';
 import 'package:flutter/material.dart';
 
 import 'base_container.dart';
 
 class BannerBody extends StatelessWidget {
-  const BannerBody({super.key, required this.height, required this.width});
-
-  final double height;
-  final double width;
+  const BannerBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // final deviceInfo = MediaQuery.of(context);
-    // final screenHeight = deviceInfo.size.height;
-    // final screenWidth = deviceInfo.size.width;
-
     return BaseContainer(
-      color: Color.fromRGBO(217, 212, 199, 0.8),
-      height: height,
-      // screenHeight * 0.1,
-      width: width,
-      // screenWidth * 0.7,
+      color: const Color.fromRGBO(217, 212, 199, 0.8),
+      height: SizeConfig.screenHeight * 0.1,
+      width: SizeConfig.screenWidth * 0.7,
       widget: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -33,8 +26,8 @@ class BannerBody extends StatelessWidget {
                   child: Image.asset("assets/circle_logo.png"),
                 ),
                 Text(
-                  "S-Guard",
-                  style: TextStyle(
+                  AppStrings.appTitle,
+                  style: const TextStyle(
                     fontSize: 30,
                     color: Colors.red,
                   ),

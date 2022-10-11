@@ -1,4 +1,5 @@
-import 'package:empowering_humanity/view/login/view/home_page.dart';
+import 'package:empowering_humanity/constants/size_config.dart';
+import 'package:empowering_humanity/view/home_page.dart';
 import 'package:empowering_humanity/view/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return MaterialApp(home: SplashScreen());
   }
 }
