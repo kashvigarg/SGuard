@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "61376799605",
+    "firebase_url": "https://innervehacks-80d52-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "innervehacks-80d52",
     "storage_bucket": "innervehacks-80d52.appspot.com"
   },
@@ -29,6 +30,13 @@
             {
               "client_id": "61376799605-b1drdtco3jpch7n4f6tlcbh30tkvp78c.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "61376799605-srs8v65oa349h7deavtanbq00ej5j8k2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.empoweringHumanity"
+              }
             }
           ]
         }

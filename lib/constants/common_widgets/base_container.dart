@@ -21,7 +21,7 @@ class BaseContainer extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
-          color: color == null ? Color.fromRGBO(121, 125, 140, 0.76) : color,
+          color: color ?? const Color.fromRGBO(121, 125, 140, 0.76),
           borderRadius: BorderRadius.circular(curveRadius ?? 40)),
       child: widget,
     );

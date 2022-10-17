@@ -1,3 +1,4 @@
+import 'package:empowering_humanity/constants/app_logos.dart';
 import 'package:empowering_humanity/constants/app_strings.dart';
 import 'package:empowering_humanity/constants/size_config.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ class BannerBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseContainer(
       color: const Color.fromRGBO(217, 212, 199, 0.8),
-      height: SizeConfig.screenHeight * 0.1,
+      height: SizeConfig.screenHeight * 0.12,
       width: SizeConfig.screenWidth * 0.7,
       widget: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -23,7 +24,7 @@ class BannerBody extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 CircleAvatar(
-                  child: Image.asset("assets/circle_logo.png"),
+                  child: Image.asset(AppLogos.appLogo),
                 ),
                 Text(
                   AppStrings.appTitle,
@@ -32,14 +33,14 @@ class BannerBody extends StatelessWidget {
                     color: Colors.red,
                   ),
                 ),
-                Image.asset("assets/extras/ambulance.png")
+                Image.asset(AppLogos.ambulanceLogo)
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Text(
-              "An Empowering Humanity NGO Inititative",
+              AppStrings.moto,
               textAlign: TextAlign.center,
             )
           ],

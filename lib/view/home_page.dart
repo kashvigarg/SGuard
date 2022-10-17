@@ -2,6 +2,7 @@ import 'package:empowering_humanity/constants/common_widgets/background_main.dar
 import 'package:empowering_humanity/constants/common_widgets/banner.dart';
 import 'package:empowering_humanity/constants/common_widgets/base_container.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -55,37 +56,43 @@ class HomePage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    BaseContainer(
-                        color: const Color.fromRGBO(203, 183, 7, 0.76),
-                        height: screenHeight * 0.06,
-                        width: screenWidth * 0.30,
-                        widget: const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text(
-                            "Log In",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                            ),
-                          ),
-                        )),
-                    SizedBox(
-                      width: screenWidth * 0.15,
-                    ),
-                    BaseContainer(
-                        color: const Color.fromRGBO(203, 183, 7, 0.76),
-                        height: screenHeight * 0.06,
-                        width: screenWidth * 0.30,
-                        widget: const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text("Sign Up",
+                    InkWell(
+                      onTap: () => GoRouter.of(context).push('/loginas'),
+                      child: BaseContainer(
+                          color: const Color.fromRGBO(203, 183, 7, 0.76),
+                          height: screenHeight * 0.06,
+                          width: screenWidth * 0.30,
+                          widget: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              "Log In",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 20,
-                              )),
-                        ))
+                              ),
+                            ),
+                          )),
+                    ),
+                    SizedBox(
+                      width: screenWidth * 0.15,
+                    ),
+                    InkWell(
+                      onTap: () => GoRouter.of(context).push('/signinas'),
+                      child: BaseContainer(
+                          color: const Color.fromRGBO(203, 183, 7, 0.76),
+                          height: screenHeight * 0.06,
+                          width: screenWidth * 0.30,
+                          widget: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text("Sign Up",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                )),
+                          )),
+                    )
                   ],
                 )
               ],

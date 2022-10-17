@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:go_router/go_router.dart';
 
 class ProfilePhoto extends StatelessWidget {
   const ProfilePhoto(
@@ -38,8 +39,11 @@ class ProfileBanner extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            ProfilePhoto(
-                imagePath: "assets/extras/user.png", imageText: "USER"),
+            InkWell(
+              onTap: () => GoRouter.of(context).push('userdash'),
+              child: ProfilePhoto(
+                  imagePath: "assets/extras/user.png", imageText: "USER"),
+            ),
             ProfilePhoto(
                 imagePath: "assets/extras/admin.png", imageText: "ADMIN"),
           ],

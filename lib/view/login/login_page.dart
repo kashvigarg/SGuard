@@ -2,6 +2,7 @@ import 'package:empowering_humanity/constants/common_widgets/background_main.dar
 import 'package:empowering_humanity/constants/common_widgets/banner.dart';
 import 'package:empowering_humanity/constants/common_widgets/base_container.dart';
 import 'package:empowering_humanity/constants/common_widgets/text_button.dart';
+import 'package:empowering_humanity/resources/auth_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -44,13 +45,15 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             TextFormField(
                               decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(6)),
-                                  constraints: BoxConstraints(
-                                      minHeight: 30, maxWidth: 286),
-                                  labelText: "Email",
-                                  fillColor: Colors.white,
-                                  filled: true),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(6)),
+                                constraints: BoxConstraints(
+                                    minHeight: 30, maxWidth: 286),
+                                labelText: "Email",
+                                hintText: "Enter Email",
+                                fillColor: Colors.white,
+                                filled: true,
+                              ),
                             ),
                             SizedBox(
                               height: 20,
