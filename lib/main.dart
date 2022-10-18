@@ -50,7 +50,7 @@ final _router = GoRouter(routes: [
     GoRoute(path: 'main', builder: (context, state) => const HomePage()),
     GoRoute(
         path: 'loginas',
-        builder: (context, state) => const LoginAs(),
+        builder: (context, state) => UserDashboard(),
         routes: [
           GoRoute(
             path: 'userdash',
@@ -59,12 +59,12 @@ final _router = GoRouter(routes: [
         ]),
     GoRoute(
         path: 'signinas',
-        builder: (context, state) => const SignAs(),
+        builder: (context, state) => const SignUpPage(),
         routes: [
           GoRoute(
             path: 'userdash',
             builder: (context, state) => const SignUpPage(),
-          )
+          ),
         ])
   ])
 ]);
