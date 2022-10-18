@@ -2,7 +2,7 @@ import 'package:empowering_humanity/constants/app_logos.dart';
 import 'package:empowering_humanity/constants/app_strings.dart';
 import 'package:empowering_humanity/constants/common_widgets/background_main.dart';
 import 'package:empowering_humanity/constants/common_widgets/banner.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 import 'package:empowering_humanity/constants/common_widgets/drawer.dart';
 import 'package:empowering_humanity/constants/common_widgets/text_button.dart';
 
@@ -11,9 +11,14 @@ import 'package:flutter/material.dart';
 
 import '../../constants/common_widgets/dialog_box.dart';
 
-class UserDashboard extends StatelessWidget {
+class UserDashboard extends StatefulWidget {
   UserDashboard({super.key});
 
+  @override
+  State<UserDashboard> createState() => _UserDashboardState();
+}
+
+class _UserDashboardState extends State<UserDashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,9 +54,9 @@ class UserDashboard extends StatelessWidget {
                   ),
                 ]),
           ),
-          AppButton(
+          const AppButton(
               icon: Icons.call,
-              pressedFunc: () {},
+              pressedFunc: _makePhoneCall,
               buttonColor: Colors.white,
               buttonText: "Call Police",
               height: 70,
@@ -70,4 +75,11 @@ class UserDashboard extends StatelessWidget {
 }
 
 // app work
-
+_makePhoneCall() async {
+  var url = Uri.parse("tel:9667964943");
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
