@@ -1,46 +1,38 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter/src/widgets/container.dart';
-// import 'package:flutter/src/widgets/framework.dart';
-// import 'package:flutter_google_maps/flutter_google_maps.dart';
+import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-// class MapPage extends StatelessWidget {
-//   const MapPage({super.key});
+class MapPage extends StatefulWidget {
+  const MapPage({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: FireMap(),
-//     );
-//   }
-// }
+  @override
+  State<MapPage> createState() => _MapPageState();
+}
 
-// class FireMap extends StatefulWidget {
-//   const FireMap({super.key});
+class _MapPageState extends State<MapPage> {
+  late GoogleMapController mapController;
 
-//   @override
-//   State<FireMap> createState() => _FireMapState();
-// }
+  final LatLng _center = const LatLng(45.521563, -122.677433);
 
-// class _FireMapState extends State<FireMap> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Stack(
-//       children: const [
-//         GoogleMap(
-//           initialPosition: GeoCoord(24.98, 54.77),
-//           //onTap: _onMapCreated,
-//           maxZoom: 10,
-//           mapType: MapType.roadmap,
-//           mapStyle: AutofillHints.addressCity,
-//         )
-//       ],
-//     );
-//   }
-// }
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
 
-// // void _onMapCreated(GoogleMapController controller) {
-// //     setState(() {
-// //       mapController = controller;
-// //     });
-// //   }
-// // }
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Maps Sample App'),
+          backgroundColor: Colors.green[700],
+        ),
+        body: GoogleMap(
+          onMapCreated: _onMapCreated,
+          initialCameraPosition: CameraPosition(
+            target: _center,
+            zoom: 11.0,
+          ),
+        ),
+      ),
+    );
+  }
+}

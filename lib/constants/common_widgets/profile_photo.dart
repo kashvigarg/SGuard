@@ -14,7 +14,7 @@ class ProfilePhoto extends StatelessWidget {
     return Column(
       children: [
         CircleAvatar(
-          minRadius: 47,
+          minRadius: 40,
           child: Image.asset(imagePath),
         ),
         SizedBox(
@@ -34,20 +34,15 @@ class ProfileBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            InkWell(
-              onTap: () => GoRouter.of(context).push('userdash'),
-              child: ProfilePhoto(
-                  imagePath: "assets/extras/user.png", imageText: "USER"),
-            ),
-            ProfilePhoto(
-                imagePath: "assets/extras/admin.png", imageText: "ADMIN"),
-          ],
+        InkWell(
+          onTap: () => GoRouter.of(context).push('user'),
+          child: ProfilePhoto(
+              imagePath: "assets/extras/user.png", imageText: "USER"),
         ),
+        ProfilePhoto(imagePath: "assets/extras/admin.png", imageText: "ADMIN"),
         ProfilePhoto(
             imagePath: "assets/extras/superadmin.png",
             imageText: "SUPER ADMIN"),
