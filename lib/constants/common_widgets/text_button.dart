@@ -42,28 +42,30 @@ class AppButton extends StatelessWidget {
               )),
             ),
           )
-        : Container(
-            height: height ?? SizeConfig.screenHeight * 0.06,
-            width: width ?? SizeConfig.screenWidth * 0.6,
-            decoration: BoxDecoration(
-              color: buttonColor ?? const Color.fromRGBO(245, 246, 241, 0.67),
-              borderRadius: BorderRadius.circular(25),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  icon,
-                  color: Colors.purple,
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  buttonText,
-                  style: TextStyle(fontSize: 15, color: textColor),
-                ),
-              ],
+        : InkWell(
+            child: Container(
+              height: height ?? SizeConfig.screenHeight * 0.06,
+              width: width ?? SizeConfig.screenWidth * 0.6,
+              decoration: BoxDecoration(
+                color: buttonColor ?? const Color.fromRGBO(245, 246, 241, 0.67),
+                borderRadius: BorderRadius.circular(25),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    icon,
+                    color: Colors.purple,
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    buttonText,
+                    style: TextStyle(fontSize: 15, color: textColor),
+                  ),
+                ],
+              ),
             ),
           );
   }

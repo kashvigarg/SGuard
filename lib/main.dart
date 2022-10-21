@@ -1,6 +1,8 @@
+import 'package:empowering_humanity/api/live_location/map_page.dart';
 import 'package:empowering_humanity/api/live_streams/live_stream_view.dart';
 import 'package:empowering_humanity/constants/size_config.dart';
 import 'package:empowering_humanity/view/home_page.dart';
+import 'package:empowering_humanity/view/map/map_view2.dart';
 import 'package:empowering_humanity/view/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -47,22 +49,22 @@ class MyApp extends StatelessWidget {
 
 final _router = GoRouter(routes: [
   GoRoute(path: '/', builder: (context, state) => SplashScreen(), routes: [
-    GoRoute(path: 'main', builder: (context, state) => const HomePage()),
+    GoRoute(path: 'main', builder: (context, state) => const MyAppMap()),
     GoRoute(
         path: 'loginas',
-        builder: (context, state) => UserDashboard(),
+        builder: (context, state) => const LoginAs(),
         routes: [
           GoRoute(
-            path: 'userdash',
+            path: 'user',
             builder: (context, state) => UserDashboard(),
           )
         ]),
     GoRoute(
         path: 'signinas',
-        builder: (context, state) => const SignUpPage(),
+        builder: (context, state) => const SignAs(),
         routes: [
           GoRoute(
-            path: 'userdash',
+            path: 'user',
             builder: (context, state) => const SignUpPage(),
           ),
         ])

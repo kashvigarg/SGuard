@@ -22,23 +22,24 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: [
                 BannerBody(),
-                const SizedBox(
-                  height: 40,
+                SizedBox(
+                  height: screenHeight * 0.04,
                 ),
                 BaseContainer(
                   widget: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Image.asset(
-                          "assets/transp_logo.png",
-                          fit: BoxFit.fitWidth,
+                        padding: const EdgeInsets.only(top: 15.0),
+                        child: CircleAvatar(
+                          backgroundColor: Colors.transparent,
+                          child: Image.asset("assets/transp_logo.png"),
+                          maxRadius: screenHeight * 0.18,
                         ),
                       ),
                       const Padding(
                         padding: EdgeInsets.all(16.0),
                         child: Text(
-                          "An Enpowering Humanity NGO Initiative",
+                          "An Empowering Humanity NGO Initiative",
                           textAlign: TextAlign.center,
                           softWrap: true,
                           style: TextStyle(color: Colors.black, fontSize: 30),
@@ -50,8 +51,8 @@ class HomePage extends StatelessWidget {
                   width: screenWidth * 0.8,
                   curveRadius: 40,
                 ),
-                const SizedBox(
-                  height: 80,
+                SizedBox(
+                  height: screenHeight * 0.08,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
