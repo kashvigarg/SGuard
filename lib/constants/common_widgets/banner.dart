@@ -28,19 +28,18 @@ class BannerBody extends StatelessWidget {
                 ),
                 Text(
                   AppStrings.appTitle,
+                  textScaleFactor: 2,
                   style: const TextStyle(
-                    fontSize: 30,
                     color: Colors.red,
                   ),
                 ),
                 Image.asset(AppLogos.ambulanceLogo)
               ],
             ),
-            const SizedBox(
-              height: 5,
-            ),
+            SizedBox.shrink(),
             Text(
               AppStrings.moto,
+              textScaleFactor: 1,
               textAlign: TextAlign.center,
             )
           ],

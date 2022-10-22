@@ -60,9 +60,9 @@ class _SignUpPageState extends State<SignUpPage> {
                               child: SingleChildScrollView(
                                 child: Column(
                                   children: [
-                                    // SizedBox(
-                                    //   height: 45,
-                                    // ),
+                                    SizedBox(
+                                      height: screenHeight * 0.04,
+                                    ),
                                     TextFormField(
                                       validator: (value) {
                                         if (value!.isEmpty) {
@@ -80,7 +80,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                               borderRadius:
                                                   BorderRadius.circular(6)),
                                           constraints: BoxConstraints(
-                                              minHeight: 30, maxWidth: 286),
+                                              minHeight: 30, maxWidth: 275),
                                           labelText: "Email",
                                           fillColor: Colors.white,
                                           filled: true),
@@ -108,7 +108,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                               borderRadius:
                                                   BorderRadius.circular(6)),
                                           constraints: BoxConstraints(
-                                              minHeight: 30, maxWidth: 286),
+                                              minHeight: 30, maxWidth: 275),
                                           labelText: "Password",
                                           fillColor: Colors.white,
                                           filled: true),
@@ -131,13 +131,13 @@ class _SignUpPageState extends State<SignUpPage> {
                                               borderRadius:
                                                   BorderRadius.circular(6)),
                                           constraints: BoxConstraints(
-                                              minHeight: 30, maxWidth: 286),
+                                              minHeight: 30, maxWidth: 275),
                                           labelText: "Re-Enter Password",
                                           fillColor: Colors.white,
                                           filled: true),
                                     ),
                                     SizedBox(
-                                      height: screenHeight * 0.02,
+                                      height: screenHeight * 0.06,
                                     ),
                                     AppButton(
                                         pressedFunc: () async {
@@ -159,6 +159,9 @@ class _SignUpPageState extends State<SignUpPage> {
                         ],
                       ),
                     ),
+                  ),
+                  SizedBox(
+                    height: screenHeight * 0.04,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
