@@ -40,9 +40,10 @@ class HomePage extends StatelessWidget {
                         padding: EdgeInsets.all(16.0),
                         child: Text(
                           "An Empowering Humanity NGO Initiative",
+                          textScaleFactor: 1.5,
                           textAlign: TextAlign.center,
                           softWrap: true,
-                          style: TextStyle(color: Colors.black, fontSize: 30),
+                          style: TextStyle(color: Colors.black),
                         ),
                       )
                     ],

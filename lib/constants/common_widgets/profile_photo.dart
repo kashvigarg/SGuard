@@ -38,7 +38,7 @@ class ProfileBanner extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         InkWell(
-          onTap: () => GoRouter.of(context).push('user'),
+          onTap: () => GoRouter.of(context).push('/user'),
           child: ProfilePhoto(
               imagePath: "assets/extras/user.png", imageText: "USER"),
         ),

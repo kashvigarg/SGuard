@@ -33,42 +33,25 @@ class CustomDrawer extends StatelessWidget {
               child: Divider(
             color: Colors.white,
           )),
-          AppButton(
-            buttonColor: Colors.black45,
-            buttonText: "Home",
-            textColor: Colors.white,
-            pressedFunc: () {},
-            icon: Icons.home,
+          ListTile(
+            leading: Icon(Icons.settings),
+            // onTap: () => GoRouter.of(context).go('/profile'),
+            title: Text("Profile"),
           ),
-          AppButton(
-            buttonColor: Color.fromRGBO(0, 0, 0, 0.451),
-            buttonText: "Profile",
-            textColor: Colors.white,
-            pressedFunc: () {},
-            icon: Icons.pages,
+          ListTile(
+            leading: Icon(Icons.person),
+            // onTap: () => GoRouter.of(context).go('/maploc'),
+            title: Text("Local Admins"),
           ),
-          AppButton(
-            buttonColor: Colors.black45,
-            buttonText: "Local Admins",
-            textColor: Colors.white,
-            pressedFunc: () {},
-            icon: Icons.person,
+          ListTile(
+            leading: Icon(Icons.location_city),
+            onTap: () => GoRouter.of(context).go('/maploc'),
+            title: Text("Track Your Location"),
           ),
-          AppButton(
-            buttonColor: Colors.black45,
-            buttonText: "Feedback",
-            textColor: Colors.white,
-            pressedFunc: () {},
-            icon: Icons.feedback_rounded,
-          ),
-          AppButton(
-            buttonColor: Colors.black45,
-            buttonText: "Logout",
-            textColor: Colors.white,
-            pressedFunc: () {
-              Navigator.pop(context);
-            },
-            icon: Icons.logout,
+          ListTile(
+            leading: Icon(Icons.logout),
+            onTap: () => GoRouter.of(context).go('/main'),
+            title: Text("Logout"),
           ),
         ],
       ),
