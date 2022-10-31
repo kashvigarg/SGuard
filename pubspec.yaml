@@ -47,6 +47,7 @@ dependencies:
   location: ^4.4.0
   json_annotation: 
   geolocator: ^9.0.2
+  permission_handler: ^6.1.1
   
    
   
