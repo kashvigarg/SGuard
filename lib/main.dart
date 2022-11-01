@@ -1,19 +1,13 @@
-import 'dart:collection';
-
-import 'package:empowering_humanity/api/live_location/map_page.dart';
-import 'package:empowering_humanity/api/live_streams/live_stream_view.dart';
-import 'package:empowering_humanity/constants/size_config.dart';
 import 'package:empowering_humanity/view/home_page.dart';
-
 import 'package:empowering_humanity/view/map/map_view.dart';
-
-import 'package:empowering_humanity/view/registration/registration_form.dart';
+import 'package:empowering_humanity/view/registration/profile_preview.dart';
+import 'package:empowering_humanity/view/registration/profile_setup.dart';
 import 'package:empowering_humanity/view/splash/splash_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:go_router/go_router.dart';
 import 'firebase_options.dart';
+import 'temp_page.dart';
 import 'view/dashboard/user_dashboard.dart';
 import 'view/login/login_as.dart';
 import 'view/signup/sign_as.dart';
@@ -60,17 +54,20 @@ final _router = GoRouter(routes: [
       path: 'loginas',
       builder: (context, state) => const LoginAs(),
     ),
-    // GoRoute(
-    //   path: 'user',
-    //   builder: (context, state) => UserDashboard(),
-    // ),
+    GoRoute(
+      path: 'user2',
+      builder: (context, state) => const UserDashboard(),
+    ),
     GoRoute(
       path: 'maploc',
       builder: (context, state) => const MapView(),
     ),
     GoRoute(
-        path: 'profile',
-        builder: ((context, state) => const RegistrationForm())),
+        path: 'profile', builder: ((context, state) => const ProfilePreview())),
+    GoRoute(
+      path: 'editprofile',
+      builder: (context, state) => const ProfileSetUp(),
+    ),
     GoRoute(
       path: 'signinas',
       builder: (context, state) => const SignAs(),
@@ -78,6 +75,10 @@ final _router = GoRouter(routes: [
     GoRoute(
       path: 'user',
       builder: (context, state) => const SignUpPage(),
+    ),
+    GoRoute(
+      path: 'temp',
+      builder: (context, state) => const TempPage(),
     ),
   ])
 ]);
