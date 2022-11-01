@@ -12,16 +12,15 @@ class AppButton extends StatelessWidget {
       this.width,
       this.icon,
       this.textColor,
-      required this.pressedFunc});
+      this.pressedFunc});
 
+  final Function()? pressedFunc;
   final Color? buttonColor;
   final String buttonText;
   final double? height;
   final double? width;
   final IconData? icon;
   final Color? textColor;
-
-  final Function() pressedFunc;
 
   @override
   Widget build(BuildContext context) {

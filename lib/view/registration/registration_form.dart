@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:empowering_humanity/constants/common_widgets/background_main.dart';
 import 'package:empowering_humanity/constants/common_widgets/banner.dart';
 import 'package:empowering_humanity/constants/common_widgets/base_container.dart';
-import 'package:empowering_humanity/constants/common_widgets/text_button.dart';
+import 'package:empowering_humanity/constants/common_widgets/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -209,6 +209,10 @@ class _RegistrationForm extends State<RegistrationForm> {
   }
 }
 
+Stream<List<User>> readUsers() =>
+    FirebaseFirestore.instance.collection('users').snapshots().map((snapshot) =>
+        snapshot.docs.map((doc) => User.fromJson(doc.data())).toList());
+
 Future createUser(User user) async {
   final docuser = FirebaseFirestore.instance.collection('users').doc();
   user.id = docuser.id;
@@ -216,7 +220,3 @@ Future createUser(User user) async {
   final json = user.toJson();
   await docuser.set(json);
 }
-
-Stream<List<User>> readUsers() =>
-    FirebaseFirestore.instance.collection('users').snapshots().map((snapshot) =>
-        snapshot.docs.map((doc) => User.fromJson(doc.data())).toList());

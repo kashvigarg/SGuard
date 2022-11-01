@@ -4,9 +4,9 @@ import 'package:empowering_humanity/api/live_location/map_page.dart';
 import 'package:empowering_humanity/api/live_streams/live_stream_view.dart';
 import 'package:empowering_humanity/constants/size_config.dart';
 import 'package:empowering_humanity/view/home_page.dart';
-import 'package:empowering_humanity/view/map/location_tracking.dart';
+
 import 'package:empowering_humanity/view/map/map_view.dart';
-import 'package:empowering_humanity/view/map/map_view2.dart';
+
 import 'package:empowering_humanity/view/registration/registration_form.dart';
 import 'package:empowering_humanity/view/splash/splash_page.dart';
 import 'package:flutter/material.dart';
@@ -60,22 +60,24 @@ final _router = GoRouter(routes: [
       path: 'loginas',
       builder: (context, state) => const LoginAs(),
     ),
-    GoRoute(
-      path: 'user',
-      builder: (context, state) => UserDashboard(),
-    ),
+    // GoRoute(
+    //   path: 'user',
+    //   builder: (context, state) => UserDashboard(),
+    // ),
     GoRoute(
       path: 'maploc',
-      builder: (context, state) => const MyAppMap(),
+      builder: (context, state) => const MapView(),
     ),
     GoRoute(
-        path: 'signinas',
-        builder: (context, state) => const SignAs(),
-        routes: [
-          GoRoute(
-            path: 'user',
-            builder: (context, state) => const SignUpPage(),
-          ),
-        ])
+        path: 'profile',
+        builder: ((context, state) => const RegistrationForm())),
+    GoRoute(
+      path: 'signinas',
+      builder: (context, state) => const SignAs(),
+    ),
+    GoRoute(
+      path: 'user',
+      builder: (context, state) => const SignUpPage(),
+    ),
   ])
 ]);
