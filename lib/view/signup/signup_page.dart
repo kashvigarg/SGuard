@@ -1,7 +1,9 @@
+import 'package:empowering_humanity/constants/app_strings.dart';
 import 'package:empowering_humanity/constants/common_widgets/background_main.dart';
 import 'package:empowering_humanity/constants/common_widgets/banner.dart';
 import 'package:empowering_humanity/constants/common_widgets/base_container.dart';
 import 'package:empowering_humanity/constants/common_widgets/app_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -18,16 +20,20 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  String pass = "";
-  String mail = "";
+  late final TextEditingController _email, _pass;
 
-  final _formKey = GlobalKey<FormState>();
+  @override
+  void initState() {
+    _email = TextEditingController();
+    _pass = TextEditingController();
+    super.initState();
+  }
 
-  moveToHome(BuildContext context) async {
-    if (_formKey.currentState!.validate()) {
-      () => GoRouter.of(context).push('/user');
-      setState(() {});
-    }
+  @override
+  void dispose() {
+    _email.dispose();
+    _pass.dispose();
+    super.dispose();
   }
 
   @override
@@ -48,110 +54,100 @@ class _SignUpPageState extends State<SignUpPage> {
                     children: [
                       const BannerBody(),
                       Form(
-                          key: _formKey,
                           child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                  height: SizeConfig.screenHeight * 0.04,
-                                ),
-                                TextFormField(
-                                  validator: (value) {
-                                    if (value!.isEmpty) {
-                                      return "Email cannot be empty";
-                                    }
-
-                                    return null;
-                                  },
-                                  onChanged: (value) {
-                                    mail = value;
-                                    setState(() {});
-                                  },
-                                  decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(6)),
-                                      constraints: const BoxConstraints(
-                                          minHeight: 30, maxWidth: 275),
-                                      labelText: "Email",
-                                      fillColor: Colors.white,
-                                      filled: true),
-                                ),
-                                const SizedBox(
-                                  height: 15,
-                                ),
-                                TextFormField(
-                                  onChanged: (value) {
-                                    pass = value;
-                                    setState(() {});
-                                  },
-                                  validator: (value) {
-                                    if (value!.isEmpty) {
-                                      return "Password cannot be empty";
-                                    } else if (value.length < 6) {
-                                      return "Password must be atleast 6 characters long";
-                                    }
-
-                                    return null;
-                                  },
-                                  obscureText: true,
-                                  decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(6)),
-                                      constraints: const BoxConstraints(
-                                          minHeight: 30, maxWidth: 275),
-                                      labelText: "Password",
-                                      fillColor: Colors.white,
-                                      filled: true),
-                                ),
-                                const SizedBox(
-                                  height: 15,
-                                ),
-                                TextFormField(
-                                  onChanged: (value) {
-                                    setState(() {});
-                                  },
-                                  validator: (value) {
-                                    if (value != pass) {
-                                      return "Password unvalidated";
-                                    }
-                                    return null;
-                                  },
-                                  decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(6)),
-                                      constraints: const BoxConstraints(
-                                          minHeight: 30, maxWidth: 275),
-                                      labelText: "Re-Enter Password",
-                                      fillColor: Colors.white,
-                                      filled: true),
-                                ),
-                                SizedBox(
-                                  height: SizeConfig.screenHeight * 0.06,
-                                ),
-                                AppButton(
-                                    pressedFunc: () {
-                                      _signUpUser;
-                                      // String res = await AuthMethods()
-                                      //     .signUpUser(
-                                      //         email: mail, password: pass);
-                                      // print(res);
-                                      // if (_formKey.currentState!.validate() &&
-                                      //     res == "sucess") {
-                                      //   GoRouter.of(context).push('/user');
-                                      // }
-                                    },
-                                    buttonColor:
-                                        const Color.fromRGBO(66, 139, 202, 1),
-                                    buttonText: "SIGN UP",
-                                    textColor: Colors.white,
-                                    height: SizeConfig.screenHeight * 0.05,
-                                    width: SizeConfig.screenWidth * 0.3)
-                              ],
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: SizeConfig.screenHeight * 0.04,
                             ),
-                          ))
+                            TextFormField(
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return "Email cannot be empty";
+                                }
+
+                                return null;
+                              },
+                              controller: _email,
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(6)),
+                                  constraints: const BoxConstraints(
+                                      minHeight: 30, maxWidth: 275),
+                                  labelText: "Email",
+                                  fillColor: Colors.white,
+                                  filled: true),
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            TextFormField(
+                              controller: _pass,
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return "Password cannot be empty";
+                                } else if (value.length < 6) {
+                                  return "Password must be atleast 6 characters long";
+                                }
+
+                                return null;
+                              },
+                              obscureText: true,
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(6)),
+                                  constraints: const BoxConstraints(
+                                      minHeight: 30, maxWidth: 275),
+                                  labelText: "Password",
+                                  fillColor: Colors.white,
+                                  filled: true),
+                            ),
+                            // const SizedBox(
+                            //   height: 15,
+                            // ),
+                            // TextFormField(
+
+                            //   validator: (value) {
+                            //     if (value != pass) {
+                            //       return "Password unvalidated";
+                            //     }
+                            //     return null;
+                            //   },
+                            //   decoration: InputDecoration(
+                            //       border: OutlineInputBorder(
+                            //           borderRadius:
+                            //               BorderRadius.circular(6)),
+                            //       constraints: const BoxConstraints(
+                            //           minHeight: 30, maxWidth: 275),
+                            //       labelText: "Re-Enter Password",
+                            //       fillColor: Colors.white,
+                            //       filled: true),
+                            // ),
+                            SizedBox(
+                              height: SizeConfig.screenHeight * 0.06,
+                            ),
+                            AppButton(
+                                pressedFunc: () {
+                                  _signUpUser(
+                                      email: _email.text, pass: _pass.text);
+                                  // String res = await AuthMethods()
+                                  //     .signUpUser(
+                                  //         email: mail, password: pass);
+                                  // print(res);
+                                  // if (_formKey.currentState!.validate() &&
+                                  //     res == "sucess") {
+                                  //   GoRouter.of(context).push('/user');
+                                  // }
+                                },
+                                buttonColor:
+                                    const Color.fromRGBO(66, 139, 202, 1),
+                                buttonText: "SIGN UP",
+                                textColor: Colors.white,
+                                height: SizeConfig.screenHeight * 0.05,
+                                width: SizeConfig.screenWidth * 0.3)
+                          ],
+                        ),
+                      ))
                     ],
                   ),
                 ),
@@ -177,7 +173,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   AppButton(
                       icon: Icons.call,
                       pressedFunc: () {
-                        _makePhoneCall();
+                        _makePhoneCall(num: AppStrings.police);
                       },
                       buttonColor: Colors.white,
                       buttonText: "Call 100",
@@ -195,13 +191,17 @@ class _SignUpPageState extends State<SignUpPage> {
 
 _nearbyHospital() async {}
 
-_makePhoneCall() async {
-  var url = Uri.parse("tel:9667964943");
-  if (await canLaunchUrl(url)) {
-    await launchUrl(url);
+_makePhoneCall({required String num}) async {
+  var url = ("tel:$num");
+  var finUrl = Uri.parse(url);
+  if (await canLaunchUrl(finUrl)) {
+    await launchUrl(finUrl);
   } else {
     throw 'Could not launch $url';
   }
 }
 
-_signUpUser() async {}
+_signUpUser({required String email, required String pass}) async {
+  final UserCredential userCredential = await FirebaseAuth.instance
+      .createUserWithEmailAndPassword(email: email, password: pass);
+}
