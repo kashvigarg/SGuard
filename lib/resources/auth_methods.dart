@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AuthMethods {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -22,6 +23,18 @@ class AuthMethods {
 
         res = "success";
       }
+    } catch (err) {
+      res = err.toString();
+    }
+    return res;
+  }
+
+  Future<String> signInUser(
+      {required String email, required String password}) async {
+    String res = "Some error occured";
+    try {
+      await _auth.signInWithEmailAndPassword(email: email, password: password);
+      res = "success";
     } catch (err) {
       res = err.toString();
     }

@@ -11,6 +11,9 @@ import '../../constants/size_config.dart';
 import '../../resources/auth_methods.dart';
 
 // signup page
+//TODO ROUTE TO REGISTRATION PAGE
+// AFTER REGISTRATION USER DASHBOARD
+// FROM DASHBOARD WE CAN DO PROFILE SETUP
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -127,17 +130,16 @@ class _SignUpPageState extends State<SignUpPage> {
                               height: SizeConfig.screenHeight * 0.06,
                             ),
                             AppButton(
-                                pressedFunc: () {
+                                pressedFunc: () async {
                                   _signUpUser(
                                       email: _email.text, pass: _pass.text);
-                                  // String res = await AuthMethods()
-                                  //     .signUpUser(
-                                  //         email: mail, password: pass);
-                                  // print(res);
-                                  // if (_formKey.currentState!.validate() &&
-                                  //     res == "sucess") {
-                                  //   GoRouter.of(context).push('/user');
-                                  // }
+                                  String res = await AuthMethods().signUpUser(
+                                      email: _email.text, password: _pass.text);
+                                  print(res);
+
+                                  if (res == "success") {
+                                    GoRouter.of(context).push('/registration');
+                                  }
                                 },
                                 buttonColor:
                                     const Color.fromRGBO(66, 139, 202, 1),

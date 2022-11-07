@@ -1,35 +1,33 @@
 import 'dart:async';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:empowering_humanity/src/locations.dart' as locations;
-import 'package:location/location.dart';
 
-class MyAppMap extends StatefulWidget {
-  const MyAppMap({super.key});
+// tracking user location for local admin
+
+class MapView extends StatefulWidget {
+  const MapView({super.key});
 
   @override
-  State<MyAppMap> createState() => _MyAppMapState();
+  State<MapView> createState() => _MapViewState();
 }
 
-class _MyAppMapState extends State<MyAppMap> {
-  Completer<GoogleMapController> _controller = Completer();
-
+class _MapViewState extends State<MapView> {
+  final Completer<GoogleMapController> _controller = Completer();
+  final User? user = FirebaseAuth.instance.currentUser;
   LatLng? currentLocation;
   Set<Marker> markers = {};
   void getCurrentPosition() async {
     Position position = await Geolocator.getCurrentPosition();
     setState(() {
-      if (position != null) {
+      {
         currentLocation = LatLng(position.latitude, position.longitude);
         markers.add(Marker(
           markerId: const MarkerId('current'),
           position: currentLocation!,
         ));
-      } else {
-        print('error');
       }
     });
   }
@@ -50,12 +48,12 @@ class _MyAppMapState extends State<MyAppMap> {
           actions: [
             IconButton(
               onPressed: () => GoRouter.of(context).go('/user'),
-              icon: Icon(Icons.arrow_back),
+              icon: const Icon(Icons.arrow_back),
             )
           ],
         ),
         body: currentLocation == null
-            ? Center(child: CircularProgressIndicator())
+            ? const Center(child: CircularProgressIndicator())
             : GoogleMap(
                 initialCameraPosition:
                     CameraPosition(target: currentLocation!, zoom: 15),
@@ -64,6 +62,7 @@ class _MyAppMapState extends State<MyAppMap> {
                 myLocationButtonEnabled: true,
                 onMapCreated: (GoogleMapController controller) => setState(() {
                   _controller.complete(controller);
+                  // TODO : push location to firebase
                 }),
               ),
       ),

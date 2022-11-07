@@ -36,7 +36,7 @@ class BannerBody extends StatelessWidget {
                 Image.asset(AppLogos.ambulanceLogo)
               ],
             ),
-            SizedBox.shrink(),
+            const SizedBox.shrink(),
             Text(
               AppStrings.moto,
               textScaleFactor: 1,

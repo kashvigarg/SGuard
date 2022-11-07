@@ -5,4 +5,5 @@ class AppStrings {
   static String moto = "An Empowering Humanity NGO Initiative";
   static String loginText =
       "Login to the app and save your personal details to better the experience in case of emergency.";
+  static String police = "9667964943";
 }

@@ -1,7 +1,9 @@
 import 'package:empowering_humanity/view/home_page.dart';
+import 'package:empowering_humanity/view/login/login_page.dart';
 import 'package:empowering_humanity/view/map/map_view.dart';
 import 'package:empowering_humanity/view/registration/profile_preview.dart';
 import 'package:empowering_humanity/view/registration/profile_setup.dart';
+import 'package:empowering_humanity/view/registration/registration_form.dart';
 import 'package:empowering_humanity/view/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -48,37 +50,48 @@ class MyApp extends StatelessWidget {
 }
 
 final _router = GoRouter(routes: [
-  GoRoute(path: '/', builder: (context, state) => SplashScreen(), routes: [
-    GoRoute(path: 'main', builder: (context, state) => const HomePage()),
-    GoRoute(
-      path: 'loginas',
-      builder: (context, state) => const LoginAs(),
-    ),
-    GoRoute(
-      path: 'user2',
-      builder: (context, state) => const UserDashboard(),
-    ),
-    GoRoute(
-      path: 'maploc',
-      builder: (context, state) => const MapView(),
-    ),
-    GoRoute(
-        path: 'profile', builder: ((context, state) => const ProfilePreview())),
-    GoRoute(
-      path: 'editprofile',
-      builder: (context, state) => const ProfileSetUp(),
-    ),
-    GoRoute(
-      path: 'signinas',
-      builder: (context, state) => const SignAs(),
-    ),
-    GoRoute(
-      path: 'user',
-      builder: (context, state) => const SignUpPage(),
-    ),
-    GoRoute(
-      path: 'temp',
-      builder: (context, state) => const TempPage(),
-    ),
-  ])
+  GoRoute(
+      path: '/',
+      builder: (context, state) => const SplashScreen(),
+      routes: [
+        GoRoute(path: 'main', builder: (context, state) => HomePage()),
+        GoRoute(
+          path: 'loginas',
+          builder: (context, state) => const LoginAs(),
+        ),
+        GoRoute(
+          path: 'login',
+          builder: (context, state) => const LoginPage(),
+        ),
+        GoRoute(
+          path: 'registration',
+          builder: (context, state) => const RegistrationForm(),
+        ),
+        GoRoute(
+          path: 'user',
+          builder: (context, state) => const UserDashboard(),
+        ),
+        GoRoute(
+          path: 'maploc',
+          builder: (context, state) => const MapView(),
+        ),
+        GoRoute(
+            path: 'profile', builder: ((context, state) => ProfilePreview())),
+        GoRoute(
+          path: 'editprofile',
+          builder: (context, state) => const ProfileSetUp(),
+        ),
+        GoRoute(
+          path: 'signinas',
+          builder: (context, state) => const SignAs(),
+        ),
+        GoRoute(
+          path: 'signup',
+          builder: (context, state) => const SignUpPage(),
+        ),
+        GoRoute(
+          path: 'temp',
+          builder: (context, state) => const TempPage(),
+        ),
+      ])
 ]);

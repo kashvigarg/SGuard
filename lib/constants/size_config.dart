@@ -1,13 +1,5 @@
 import 'package:flutter/material.dart';
 
-// class DeviceMedia extends MediaQuery {
-//   final deviceInfo = MediaQuery.of(context);
-//     final screenHeight = deviceInfo.size.height;
-//     final screenWidth = deviceInfo.size.width;
-
-//   const DeviceMedia({super.key});
-// }
-
 class SizeConfig {
   static late MediaQueryData _mediaQueryData;
   static late double screenWidth;

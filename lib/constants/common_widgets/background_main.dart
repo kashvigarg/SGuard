@@ -19,7 +19,10 @@ class BgMain extends StatelessWidget {
             ),
           ),
         ),
-        Center(child: widget)
+        Center(child: Padding(
+          padding: const EdgeInsets.only(top : 60),
+          child: widget,
+        ))
       ],
     );
   }

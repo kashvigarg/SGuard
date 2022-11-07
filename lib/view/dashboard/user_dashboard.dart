@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:empowering_humanity/constants/app_logos.dart';
 import 'package:empowering_humanity/constants/app_strings.dart';
 import 'package:empowering_humanity/constants/common_widgets/background_main.dart';
@@ -27,7 +28,17 @@ class _UserDashboardState extends State<UserDashboard> {
     // TextEditingController textEditingController =
     // TextEditingController(text: '');
 
-    final UserModel _user = FirebaseAuth.instance.currentUser! as UserModel;
+    // Stream<List<UserModel>> readUsers() => FirebaseFirestore.instance
+    //     .collection('users')
+    //     .snapshots()
+    //     .map((snapshot) => snapshot.docs
+    //         .map((doc) => UserModel.fromJson(doc.data() as String))
+    //         .toList());
+
+    // final UserModel _user = FirebaseAuth.instance.currentUser! as UserModel;
+
+    // Convert to City object
+    final _user = getUser();
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -92,6 +103,18 @@ class _UserDashboardState extends State<UserDashboard> {
   }
 }
 
+//
+getUser() async {
+  final db = FirebaseFirestore.instance.collection('users');
+  final ref = db.doc().withConverter(
+        fromFirestore: UserModel.fromFirestore,
+        toFirestore: (UserModel user, _) => user.toFirestore(),
+      );
+  final docSnap = await ref.get();
+  final user = docSnap.data();
+  return user;
+}
+
 // app functions
 
 _makePhoneCall({required String num}) async {
@@ -115,7 +138,6 @@ _pingEmergencyContacts({required String contact}) async {
 _connectRTC() async {}
 
 Widget _customDrawer(BuildContext context) {
-  final UserModel user = FirebaseAuth.instance.currentUser as UserModel;
   return Drawer(
     backgroundColor: Colors.black45,
     elevation: 6,
@@ -129,7 +151,7 @@ Widget _customDrawer(BuildContext context) {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                user.name,
+                "Options",
                 style: TextStyle(color: Colors.white),
               ),
             )

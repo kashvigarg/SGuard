@@ -1,10 +1,8 @@
 import 'package:empowering_humanity/constants/common_widgets/background_main.dart';
-import 'package:empowering_humanity/constants/common_widgets/banner.dart';
 import 'package:empowering_humanity/constants/common_widgets/base_container.dart';
-import 'package:empowering_humanity/constants/common_widgets/text_button.dart';
+import 'package:empowering_humanity/constants/common_widgets/app_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 
 class ProfileSetUp extends StatefulWidget {
   const ProfileSetUp({super.key});

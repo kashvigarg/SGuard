@@ -4,15 +4,10 @@ import 'package:empowering_humanity/constants/common_widgets/background_main.dar
 import 'package:empowering_humanity/constants/common_widgets/banner.dart';
 import 'package:empowering_humanity/constants/common_widgets/base_container.dart';
 import 'package:empowering_humanity/constants/size_config.dart';
-import 'package:empowering_humanity/resources/auth_methods.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../../resources/auth_methods.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -58,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: Column(
                       children: [
                         SizedBox(
-                          height: 48,
+                          height: SizeConfig.screenHeight * 0.05,
                         ),
                         TextFormField(
                           decoration: InputDecoration(
@@ -73,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: SizeConfig.screenHeight * 0.02,
                         ),
                         TextFormField(
                           decoration: InputDecoration(
@@ -94,18 +89,8 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(
                           height: SizeConfig.screenHeight * 0.02,
                         ),
-                        AppButton(
-                            pressedFunc: () {
-                              _loginUser(
-                                  email: _email.text, pass: _password.text);
-                            },
-                            buttonColor: Color.fromRGBO(66, 139, 202, 1),
-                            buttonText: "LOGIN",
-                            textColor: Colors.white,
-                            height: SizeConfig.screenHeight * 0.05,
-                            width: SizeConfig.screenWidth * 0.3)
                       ],
-                    ))
+                    )),
                   ],
                 ),
               ),
@@ -113,6 +98,19 @@ class _LoginPageState extends State<LoginPage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(
+                  height: SizeConfig.screenHeight * 0.05,
+                ),
+                AppButton(
+                    pressedFunc: () {
+                      _loginUser(email: _email.text, pass: _password.text);
+                      GoRouter.of(context).push('/user2');
+                    },
+                    buttonColor: Color.fromRGBO(66, 139, 202, 1),
+                    buttonText: "LOGIN",
+                    textColor: Colors.white,
+                    height: SizeConfig.screenHeight * 0.05,
+                    width: SizeConfig.screenWidth * 0.3),
                 AppButton(
                     icon: Icons.local_hospital_sharp,
                     pressedFunc: () {

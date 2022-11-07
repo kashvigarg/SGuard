@@ -2,7 +2,7 @@ import 'package:empowering_humanity/constants/app_strings.dart';
 import 'package:empowering_humanity/constants/common_widgets/background_main.dart';
 import 'package:empowering_humanity/constants/common_widgets/base_container.dart';
 import 'package:empowering_humanity/constants/common_widgets/profile_photo.dart';
-import 'package:empowering_humanity/constants/common_widgets/text_button.dart';
+import 'package:empowering_humanity/constants/common_widgets/app_button.dart';
 import 'package:empowering_humanity/constants/size_config.dart';
 import 'package:empowering_humanity/constants/themes.dart';
 import 'package:flutter/material.dart';
@@ -66,7 +66,7 @@ class LoginAs extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     AppButton(
-                        pressedFunc: () {},
+                        
                         buttonColor: Colors.white,
                         buttonText: "LOGIN AS",
                         height: SizeConfig.screenHeight * 0.06,
