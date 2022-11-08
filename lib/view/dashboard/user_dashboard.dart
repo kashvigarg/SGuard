@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:empowering_humanity/view/live_streams/live_stream_view.dart';
 import 'package:empowering_humanity/constants/app_logos.dart';
 import 'package:empowering_humanity/constants/app_strings.dart';
 import 'package:empowering_humanity/constants/common_widgets/background_main.dart';
 import 'package:empowering_humanity/constants/common_widgets/banner.dart';
 import 'package:empowering_humanity/models/user_model.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:empowering_humanity/constants/common_widgets/app_button.dart';
@@ -21,23 +21,6 @@ class UserDashboard extends StatefulWidget {
 class _UserDashboardState extends State<UserDashboard> {
   @override
   Widget build(BuildContext context) {
-    // Signaling signaling = Signaling();
-    // RTCVideoRenderer _localRenderer = RTCVideoRenderer();
-    // RTCVideoRenderer _remoteRenderer = RTCVideoRenderer();
-    // String? roomId;
-    // TextEditingController textEditingController =
-    // TextEditingController(text: '');
-
-    // Stream<List<UserModel>> readUsers() => FirebaseFirestore.instance
-    //     .collection('users')
-    //     .snapshots()
-    //     .map((snapshot) => snapshot.docs
-    //         .map((doc) => UserModel.fromJson(doc.data() as String))
-    //         .toList());
-
-    // final UserModel _user = FirebaseAuth.instance.currentUser! as UserModel;
-
-    // Convert to City object
     final _user = getUser();
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -65,8 +48,7 @@ class _UserDashboardState extends State<UserDashboard> {
                         _pingEmergencyContacts(contact: _user.contact2);
                       },
                       onDoubleTap: () {
-                        _connectRTC;
-                        // signaling.openUserMedia(_localRenderer, _remoteRenderer);
+                        _connectMedia;
                       },
                       child: Image.asset(AppLogos.sos)),
                   IconButton(
@@ -135,7 +117,9 @@ _pingEmergencyContacts({required String contact}) async {
   }
 }
 
-_connectRTC() async {}
+_connectMedia() {
+  return LiveStreamView();
+}
 
 Widget _customDrawer(BuildContext context) {
   return Drawer(
@@ -147,7 +131,7 @@ Widget _customDrawer(BuildContext context) {
         SafeArea(
             child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
-          children: [
+          children: const [
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(

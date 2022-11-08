@@ -1,3 +1,4 @@
+import 'package:empowering_humanity/view/live_streams/live_stream_view.dart';
 import 'package:empowering_humanity/view/home_page.dart';
 import 'package:empowering_humanity/view/login/login_page.dart';
 import 'package:empowering_humanity/view/map/map_view.dart';
@@ -92,6 +93,10 @@ final _router = GoRouter(routes: [
         GoRoute(
           path: 'temp',
           builder: (context, state) => const TempPage(),
+        ),
+        GoRoute(
+          path: 'livestream',
+          builder: (context, state) => LiveStreamView(),
         ),
       ])
 ]);
