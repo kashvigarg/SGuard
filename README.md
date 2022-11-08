@@ -1,18 +1,31 @@
-# S-Guard
+# <img src="./public/logo.png" width="40px"> S-Guard
 
 ## An Empowering Humanity NGO Initiative
 
 SGuard is a client focussed emergency system based in Flutter. The product assures safety through an interconnnected NGO channel, and lets you live-ping your audio, video and location in real time during panic situations. 
 
-![undraw_learning_sketching_nd4f](https://user-images.githubusercontent.com/97344852/196376580-da94ec15-edc7-4ab5-bf84-1676dd614741.png)
-
-
-
 You can read more about the app and it's development process [here](https://thisiskashvi.hashnode.dev/s-guard).
 
+<img src="public/poster.png" width = "700" height = "400"/>
 
-### Local Development 
-The app is currently under development for responsive design and testing along with various local features.
+
+
+
+
+
+### Getting Started 
+Technology Used:
+
+- Flutter : To get started with flutter head over to https://flutter.dev
+- Firebase : To learn how to integrate firebase with flutter head over to https://firebase.flutter.dev/docs/overview
+
+Major Packages:
+
+- `cloud_firestore`
+- `firebase_auth`
+- `flutter_webrtc`
+- `google_maps_flutter`
+
 
 ### Current Features
 1. You can add upto 2 emergency contacts and directly ping them in emergency situations.
