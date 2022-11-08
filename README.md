@@ -6,7 +6,7 @@ SGuard is a client focussed emergency system based in Flutter. The product assur
 
 You can read more about the app and it's development process [here](https://thisiskashvi.hashnode.dev/s-guard).
 
-<img src="public/poster.png" width = "700" height = "400"/>
+<img src="public/poster.png"/>
 
 
 
