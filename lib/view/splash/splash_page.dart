@@ -15,8 +15,7 @@ class SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    Timer(const Duration(seconds: 3),
-        () => GoRouter.of(context).push('/livestream'));
+    Timer(const Duration(seconds: 3), () => GoRouter.of(context).push('/main'));
   }
 
   @override
